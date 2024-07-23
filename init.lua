@@ -691,39 +691,44 @@ require('lazy').setup({
   },
 
   {
-    'tiagovla/tokyodark.nvim',
-    opts = {
-      -- custom options here
-    },
-    config = function(_, opts)
-      require('tokyodark').setup {
-        style = {
-          comments = {
-            italic = true,
-            fg = '#98C379',
-          },
-        },
-      } -- calling setup is optional
-      vim.cmd [[colorscheme tokyodark]]
+    -- 'tiagovla/tokyodark.nvim',
+    -- opts = {
+    -- custom options here
+    -- },
+    -- config = function(_, opts)
+    -- require('tokyodark').setup {
+    -- style = {
+    -- comments = {
+    --           italic = true,
+    --           fg = '#98C379',
+    --         },
+    --       },
+    --     } -- calling setup is optional
+    --     vim.cmd [[colorscheme tokyodark]]
+    --   end,
+    -- },
+    -- { -- You can easily change to a different colorscheme.
+    -- Change the name of the colorscheme plugin below, and then
+    -- change the command in the config to whatever the name of that colorscheme is.
+    --
+    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+    'folke/tokyonight.nvim',
+    priority = 1000, -- Make sure to load this before all the other start plugins.
+    init = function()
+      -- Load the colorscheme here.
+      -- Like many other themes, this one has different styles, and you could load
+      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.hi 'Comment guifg=#909fde'
+      vim.cmd.hi 'LspCodeLens guifg=#909fde'
+      vim.cmd.hi 'FoldColumn guifg=#909fde'
+      vim.cmd.hi 'MiniStarterInactive guifg=#909fde'
+      vim.cmd.hi 'diffLine guifg=#909fde'
+      vim.cmd.hi 'helpExample guifg=#909fde'
+      vim.cmd.hi 'LineNrAbove guifg=#909fde'
+      vim.cmd.hi 'LineNrBelow guifg=#909fde'
     end,
   },
-  -- { -- You can easily change to a different colorscheme.
-  -- Change the name of the colorscheme plugin below, and then
-  -- change the command in the config to whatever the name of that colorscheme is.
-  --
-  -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-  -- 'folke/tokyonight.nvim',
-  --priority = 1000, -- Make sure to load this before all the other start plugins.
-  --init = function()
-  -- Load the colorscheme here.
-  -- Like many other themes, this one has different styles, and you could load
-  -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-  --vim.cmd.colorscheme 'tokyonight-night'
-
-  -- You can configure highlights by doing something like:
-  --vim.cmd.hi 'Comment gui=none'
-  --end,
-  --},
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
