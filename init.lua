@@ -223,7 +223,11 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     opts = {},
   },
-
+  {
+    'MunifTanjim/prettier.nvim',
+    dependencies = { 'jose-elias-alvarez/null-ls.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
+  },
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
